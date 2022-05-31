@@ -35,12 +35,13 @@ class AuthController {
   //function to sign up users
 
   Future<String> signUpUsers(String full_name, String username, String email,
-      String password, Uint8List? image) async {
+      String phoneNumber, String password, Uint8List? image) async {
     String res = 'some error occured';
     try {
       if (full_name.isNotEmpty &&
           username.isNotEmpty &&
           email.isNotEmpty &&
+          phoneNumber.isNotEmpty &&
           password.isNotEmpty &&
           image != null) {
         UserCredential cred = await firebaseAuth.createUserWithEmailAndPassword(
@@ -52,6 +53,7 @@ class AuthController {
           'fullName': full_name,
           'username': username,
           'email': email,
+          'phoneNumber': phoneNumber,
           'image': downloadUrl,
         });
         print(cred.user!.email);

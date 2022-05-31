@@ -17,7 +17,7 @@ List pages = [
   FeedsScreen(),
   SearchScreen(),
   CartScreen(),
-  UploadScreen(),
+  UploadProductForm(),
   ProfileScreen(),
 ];
 

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/views/screens/feeds_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {
@@ -15,11 +16,19 @@ class CategoryList extends StatelessWidget {
         ),
         Row(
           children: [
-            Text(
-              'View All',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return FeedsScreen();
+                }));
+              },
+              child: Text(
+                'View All',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             SizedBox(
@@ -35,9 +44,17 @@ class CategoryList extends StatelessWidget {
                   10,
                 ),
               ),
-              child: Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return FeedsScreen();
+                  }));
+                },
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white,
+                ),
               ),
             )
           ],

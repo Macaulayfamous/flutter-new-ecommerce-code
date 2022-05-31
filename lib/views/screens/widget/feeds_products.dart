@@ -5,6 +5,8 @@ import 'package:ecommerce_app/views/screens/detail/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../provider/products.dart';
+
 class FeedsProducts extends StatefulWidget {
   @override
   _FeedsProductsState createState() => _FeedsProductsState();
@@ -14,6 +16,8 @@ class _FeedsProductsState extends State<FeedsProducts> {
   @override
   Widget build(BuildContext context) {
     final products = Provider.of<Product>(context);
+    final _productsProvider = Provider.of<Products>(context);
+
     return Container(
       margin: EdgeInsets.only(left: 5, right: 5),
       child: GestureDetector(
@@ -38,7 +42,7 @@ class _FeedsProductsState extends State<FeedsProducts> {
                         15,
                       ),
                       image: DecorationImage(
-                        image: AssetImage(products.imageUrl),
+                        image: NetworkImage(products.imageUrl),
                         fit: BoxFit.contain,
                       ),
                     ),

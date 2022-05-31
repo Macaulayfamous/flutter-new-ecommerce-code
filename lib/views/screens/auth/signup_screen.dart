@@ -19,7 +19,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
 
   final TextEditingController _passwordController = TextEditingController();
-
+  final TextEditingController _phoneNumberController = TextEditingController();
   Uint8List? _image;
   bool _isLoading = false;
 
@@ -38,6 +38,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         _fullNameController.text,
         _usernameController.text,
         _emailController.text,
+        _phoneNumberController.text,
         _passwordController.text,
         _image);
 
@@ -128,6 +129,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   hintText: 'Enter your email',
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: _phoneNumberController,
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  filled: true,
+                  hintText: 'Enter your phone number',
                   border: OutlineInputBorder(
                     borderSide: BorderSide.none,
                   ),

@@ -1,6 +1,8 @@
 import 'package:ecommerce_app/const.dart';
+import 'package:ecommerce_app/provider/products.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override

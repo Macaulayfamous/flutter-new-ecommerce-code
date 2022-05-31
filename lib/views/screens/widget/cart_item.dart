@@ -36,7 +36,7 @@ class CartItem extends StatelessWidget {
               width: 130,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(
+                  image: NetworkImage(
                     '${_cartAttr.imageUrl}',
                   ),
                   fit: BoxFit.cover,

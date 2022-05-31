@@ -12,15 +12,17 @@ class ProductItem extends StatelessWidget {
   const ProductItem({Key? key, required this.index}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final _productsProvider = Provider.of<Products>(context);
+    final products = Provider.of<Product>(context);
 
-    List<Product> _productList = _productsProvider.products;
     return Container(
       margin: EdgeInsets.all(
         10,
       ),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context)
+              .pushNamed(DetailPage.id, arguments: products.id);
+        },
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -38,7 +40,7 @@ class ProductItem extends StatelessWidget {
                         15,
                       ),
                       image: DecorationImage(
-                        image: AssetImage(_productList[index].imageUrl),
+                        image: NetworkImage(products.imageUrl),
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -58,14 +60,14 @@ class ProductItem extends StatelessWidget {
                 ],
               ),
               Text(
-                _productList[index].title,
+                products.title,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   height: 1.6,
                 ),
               ),
               Text(
-                '\$${_productList[index].price}',
+                '\$${products.price}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   height: 1.5,
